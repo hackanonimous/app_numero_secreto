@@ -22,6 +22,13 @@ function asignarTextoElemento(selector,texto){
 function intentoDeUsuario(){
   //al ejecutar esta funcion puedo capturar el numero del input
   let numeroDeUsuario=Number(document.querySelector("#valorUsuario").value);
+
+  //verificar que el rango sea el valido
+  if (numeroDeUsuario>10){
+    asignarTextoElemento(".texto__parrafo","No se permiten numeros mayores a 10");
+    limpiarInput();
+    return;
+  }
   //let numeroInput=document.getElementById("valorUsuario").value;
   if (numeroDeUsuario===numeroSecreto){
     asignarTextoElemento(".texto__parrafo",`Acertaste el número en ${numeroIntentos} ${numeroIntentos==1?"vez":"veces"}`);
